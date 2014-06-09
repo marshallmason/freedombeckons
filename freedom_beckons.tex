@@ -1,0 +1,39 @@
+\documentclass[a4paper,11pt]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty} % Change title formatting
+\usepackage{graphicx} % \includegraphics
+\usepackage{color} % \color
+\usepackage{hyperref} % \url
+\usepackage{breakurl} % Fixes some "Overfull \hbox" errors in \url
+\usepackage{pgfplots} % Graphing plots
+%\usepackage[superscript]{cite} % Changes bibliography citations to use superscript
+
+\title{Freedom Beckons}
+\author{Marshall Mason}
+
+\setlength{\parskip}{0pt} % Prevent huge spaces between paragraphs
+\setcounter{secnumdepth}{0} % Turns off numbering for sections
+\chapterfont{\centering\fontfamily{pzc}\selectfont} % Change title formatting
+\pgfplotsset{compat=1.5.1} % Recommended for pgfplots
+
+\begin{document}
+\frontmatter
+\include{note_to_reader}
+\tableofcontents
+\include{preface}
+\include{acknowledgements}
+\include{introduction}
+\mainmatter
+\include{chapter_1}
+\include{chapter_2}
+\include{chapter_3}
+\include{chapter_4}
+\include{chapter_5}
+\include{chapter_6}
+\include{chapter_7}
+\backmatter
+\include{bibliography}
+\end{document}
