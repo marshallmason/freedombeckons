@@ -1,7 +1,16 @@
-\documentclass[a4paper,11pt]{book}
+% book
+\documentclass[paper=6in:9in,pagesize=pdftex,headinclude=on,footinclude=on]{scrbook}
+\areaset[0.50in]{4.5in}{8in}
+\renewcommand*{\chapterformat}{%
+\fontsize{80}{88}\selectfont\thechapter\autodot\enskip}
+\renewcommand{\footnotesize}{\small}
 
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% PDF
+%\documentclass[a4paper,12pt,oneside,openany]{book}
+
+% ebook PDF
+%\documentclass[a5paper,12pt,ebook,oneside,openany]{book}
+
 \usepackage[utf8]{inputenc}
 \usepackage{sectsty} % Change title formatting
 \usepackage{graphicx} % \includegraphics
@@ -9,24 +18,36 @@
 \usepackage{hyperref} % \url
 \usepackage{breakurl} % Fixes some "Overfull \hbox" errors in \url
 \usepackage{pgfplots} % Graphing plots
-%\usepackage[superscript]{cite} % Changes bibliography citations to use superscript
+\usetikzlibrary{plotmarks}
+\usepackage[superscript]{cite} % Changes bibliography citations to use superscript
+\usepackage{fancyhdr}
+
+% Page style config
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \title{Freedom Beckons}
 \author{Marshall Mason}
 
+\pgfplotsset{compat=1.11} % Recommended by pgfplots manual
 \setlength{\parskip}{0pt} % Prevent huge spaces between paragraphs
 \setcounter{secnumdepth}{0} % Turns off numbering for sections
 \chapterfont{\centering\fontfamily{pzc}\selectfont} % Change title formatting
-\pgfplotsset{compat=1.5.1} % Recommended for pgfplots
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}} % Use symbols for footnotes
 
 \begin{document}
 \frontmatter
 \include{note_to_reader}
+\let\cleardoublepage\clearpage % Prevents the extra page after every chapter
 \tableofcontents
 \include{preface}
 \include{acknowledgements}
-\include{introduction}
 \mainmatter
+\include{introduction}
+\setcounter{chapter}{0}
 \include{chapter_1}
 \include{chapter_2}
 \include{chapter_3}
